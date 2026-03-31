@@ -28,5 +28,5 @@ def main():
     result_text= encrypt(text, key)
     print(result_text)
 
-
-main()
+if __name__ == "__main__":
+    main()
