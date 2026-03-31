@@ -1,15 +1,18 @@
 def encrypt(text: str, key: int) -> str:
     result=""
     for c in text:
-        if not c.isalpha():
-            result += c
-            continue
+        # if not c.isalpha():
+        #     result += c
+        #     continue
         ascii_code = ord(c)
         match ascii_code:
-            case (a) if a<=90 :
+            case (a) if 65<=a<=90 :
                 result += chr((ascii_code-65+key)%26+65)
-            case (a) if a>=97:
+            case (a) if 97<=a<=122 :
                 result += chr((ascii_code - 97 + key) % 26 + 97)
+            case _:
+                result += c
+
 
     return result
 
