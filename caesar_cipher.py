@@ -1,7 +1,7 @@
 def encrypt(text: str, key: int) -> str:
     result=""
     for c in text:
-        # if not c.isalpha():
+       # if not c.isalpha():
         #     result += c
         #     continue
         ascii_code = ord(c)
