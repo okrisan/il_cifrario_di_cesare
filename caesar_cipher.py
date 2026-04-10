@@ -21,7 +21,7 @@ def encrypt(text: str, key: int) -> str:
 
 
 
-def main():
+def main() -> None:
     key = input("inserire la chiave da utilizzare (positiva per cryptare, negativa per decryptare): ")
     while not key.strip("-").isnumeric():
         print("chiave non valida, deve essere un numero\n")

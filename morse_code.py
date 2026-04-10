@@ -4,7 +4,7 @@ from base64_decode import base64_decode
 from caesar_bruteforce import caesar_bruteforce
 
 
-def morse_code(fileinput):
+def morse_code(fileinput: str) -> str | list[str]:
     morse_to_char = {
         '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
         '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
@@ -38,7 +38,8 @@ def morse_code(fileinput):
     return caesar_bruteforce(result)
 
 
-def main():    print(f"Level 11: {morse_code("morse_code.txt")}")
+def main() -> None:
+    print(f"Level 11: {morse_code('morse_code.txt')}")
 
 if __name__ == "__main__": main()
 

@@ -6,40 +6,40 @@ from caesar_cipher import *
 from morse_code import morse_code
 
 
-def solve_level_1(text:str):
+def solve_level_1(text: str) -> str:
     return f"Level 1: {hex_to_bin(text).decode('utf-8')}"
 
-def solve_level_2(parte1, parte2):
+def solve_level_2(parte1: str | bytes, parte2: int) -> str:
     numero_byte = (parte2.bit_length() + 7) // 8
     return f"Level 2: {base64_decode(parte1).decode('utf-8')}{parte2.to_bytes(length=numero_byte, byteorder='big').decode('utf-8')}"
 
-def solve_level_3(text):
+def solve_level_3(text: str | bytes) -> str:
     result=base64_decode(text)
     result=result.decode('utf-8')
     result=hex_to_bin(result)
     result = result.decode('utf-8')
     return f"Level 3: {result}"
 
-def solve_level_4(text):
+def solve_level_4(text: str | bytes) -> str:
     result = base64_decode(text)
     result=result.decode('utf-8')
     result = base64_decode(result).decode('utf-8')
     return f"Level 4: {result}"
 
 
-def solve_level_5(text):
+def solve_level_5(text: str) -> str:
     result = hex_to_bin(text)
     result = result.decode('utf-8')
     result = result[::-1]
     return f"Level 5: {result}"
 
-def solve_level_6(text):
+def solve_level_6(text: str) -> str:
     result=text.replace("00","")
     result = hex_to_bin(result)
     result = result.decode('utf-8')
     return f"Level 6: {result}"
 
-def solve_level_7(text):
+def solve_level_7(text: str) -> str:
 
     result = hex_to_bin(text)
     result = result.decode('utf-8')
@@ -50,7 +50,7 @@ def solve_level_7(text):
     return f"Level 7: {result}"
 
 
-def solve_level_8(text):
+def solve_level_8(text: str) -> str:
     list = text.split("|")
     result=""
     for part in list:
@@ -64,13 +64,13 @@ def solve_level_8(text):
             result+=part
     return f"Level 8: {result}"
 
-def solve_level_9(text):
+def solve_level_9(text: str | bytes) -> str:
     result = base64_decode(text)
     result = result.decode('utf-8')
     result = caesar_bruteforce(result)
     return f"Level 9: {result}"
 
-def solve_level_10(text):
+def solve_level_10(text: str | bytes) -> str:
     result= encrypt(text, 16)
     result = base64_decode(result)
     result = result.decode('utf-8')
@@ -83,10 +83,10 @@ def solve_level_10(text):
     #result=result.replace("\x","")
     return f"Level 10: {result}"
 
-def solve_level_11(fileinput):
+def solve_level_11(fileinput: str) -> str:
     return f"Level 11: {morse_code(fileinput)}"
 
-def main():
+def main() -> None:
     print ("=== CTF Decoder ===")
     print(solve_level_1("666c61677b68337834646563696d616c5f63346e5f62335f41424144424142457d"))
     print(solve_level_2("ZmxhZ3t3NDF0XzF0c19hbGxfYjE=", int("664813035583918006462745898431981286737635929725", 10)))

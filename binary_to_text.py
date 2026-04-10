@@ -1,7 +1,7 @@
 from caesar_cipher import main
 
 
-def binary_to_text(binary_string):
+def binary_to_text(binary_string: str) -> str:
     result=""
     bytevalue=0
     for i in range(0,len(binary_string),8):
@@ -10,7 +10,7 @@ def binary_to_text(binary_string):
     return result
 
 
-def main():
-    bin="0110001100110011011011000111010101100100010010000111010001000100010100010101010101010110010501０００１０１０００１０１０１０１１００１００１０１００１１００１１００１０１０１０００１０００１１０００１１０００００１１００１₀₀₁₀₁₀₁₀₀₁₁₀₁₀₀₀₁₁₀₁₀₁₀₁₀₁₀₁₀₁₀₁₁₀₁₀₀₀₁₀₀₁₁₀₁₀₁₀₁₀₁₀₁₀₁₀₁₁₀₁₀₀₀₁₀₀₁₁₀₁₀₁₀₁₂"
+def main() -> None:
+    bin=input("Enter a binary string: ")
     print(binary_to_text(bin))
 if __name__ == "__main__": main()
