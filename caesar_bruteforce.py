@@ -7,6 +7,6 @@ def caesar_bruteforce(text:str):
         result=encrypt(text,int(i))
         list.append(result)
         if "flag" in result:
-            break
+            return result
 
-    return result
+    return list
