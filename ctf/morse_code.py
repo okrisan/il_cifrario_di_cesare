@@ -1,7 +1,7 @@
 from hex_to_bin import hex_to_bin
 from binary_to_text import binary_to_text
 from base64_decode import base64_decode
-from caesar_bruteforce import caesar_bruteforce
+from caesar_breaker import brute_force
 
 
 def morse_code(fileinput: str) -> str | list[str]:
@@ -35,7 +35,11 @@ def morse_code(fileinput: str) -> str | list[str]:
     result=base64_decode(result)
     #print(result)
     result=result.decode('utf-8')
-    return caesar_bruteforce(result)
+    result=brute_force(result)
+    for element in result:
+        if "flag" in element[1]:
+            return element[1].strip()
+
 
 
 def main() -> None:
